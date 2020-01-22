@@ -16,13 +16,16 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule} from '@angular/material/grid-list';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './pages/login/login.component';
 import { UserCardComponent } from './layout/user-card/user-card.component';
+import { TrombinoscopeComponent } from './pages/trombinoscope/trombinoscope.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'card',  component: UserCardComponent },
+  { path: 'card', component: UserCardComponent },
+  { path: 'trombinoscope',  component: TrombinoscopeComponent },
 ];
 
 @NgModule({
@@ -30,7 +33,8 @@ const appRoutes: Routes = [
     AppComponent,
     HeaderComponent,
     LoginComponent,
-    UserCardComponent
+    UserCardComponent,
+    TrombinoscopeComponent
   ],
   imports: [
     BrowserModule,
@@ -46,6 +50,7 @@ const appRoutes: Routes = [
     MatSelectModule,
     MatRadioModule,
     MatCardModule,
+    MatGridListModule,
     ReactiveFormsModule,
     RouterModule.forRoot(
       appRoutes,
