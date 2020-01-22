@@ -1,0 +1,26 @@
+<form class="login-form" [formGroup]>
+  <mat-form-field class="email field">
+
+    <input matInput placeholder="Email" [formControl]="emailFormControl" [errorStateMatcher]="matcher">
+    <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+      Please enter a valid email address
+    </mat-error>
+    <mat-error *ngIf="emailFormControl.hasError('required')">
+
+      Email is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="password field">
+    <input matInput placeholder="Mot de passe" type="password" [formControl]="passwordFormControl" [errorStateMatcher]="matcher">
+    <mat-error *ngIf="passwordFormControl.hasError('pattern') && !passwordFormControl.hasError('required')">
+      Please enter a valid password (at least eight characters, one number and one special character)
+    </mat-error>
+    <mat-error *ngIf="passwordFormControl.hasError('required')">
+
+      Password is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+  <button type='button' (click)="onClickMe()" class="connect" mat-raised-button color="primary">Se connecter</button>
+  {{clickMessage}}
+</form>
+

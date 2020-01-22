@@ -1,0 +1,25 @@
+.user-card {
+  width: 250px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-card > * {
+  width: 100%;
+  flex: 1;
+}
+
+.user-card-header-image {
+  background-image: url('https://pbs.twimg.com/profile_images/1194992779576913920/q4-8zgT8_bigger.jpg');
+  background-size: cover;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  font-size: medium;
+  width: 100%;
+  flex: 1;
+}
