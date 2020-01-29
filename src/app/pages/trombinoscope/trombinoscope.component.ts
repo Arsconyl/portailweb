@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import User from '../../model/user.model';
+import {USER} from '../../_static/people';
 
 @Component({
   selector: 'app-trombinoscope',
@@ -6,22 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./trombinoscope.component.scss']
 })
 export class TrombinoscopeComponent implements OnInit {
+  users: any;
 
-  protected users = [{
-      firstName: 'Arnaud',
-      lastName: 'Couderc',
-      role: 'rôle',
-      phone: '0123456789',
-      email: 'exemple@email.com'
-    },
-    {
-      firstName: 'Alexandre',
-      lastName: 'Ludwig',
-      role: 'rôle',
-      phone: '0123456789',
-      email: 'exemple@email.com'
-    }];
   constructor() {
+    this.users = USER;
   }
 
   ngOnInit() {
