@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/services/user.service';
 import User from '../../model/user.model';
-import {USER} from '../../_static/people';
 
 @Component({
   selector: 'app-trombinoscope',
@@ -8,13 +8,16 @@ import {USER} from '../../_static/people';
   styleUrls: ['./trombinoscope.component.scss']
 })
 export class TrombinoscopeComponent implements OnInit {
-  users: any;
+  users: User[];
 
-  constructor() {
-    this.users = USER;
+  constructor(private userService: UserService) {
+    this.users = [];
   }
 
   ngOnInit() {
+    this.userService.getAllUsers().subscribe(users => {
+      this.users = users;
+    });
   }
 
 }

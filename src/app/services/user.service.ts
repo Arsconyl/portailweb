@@ -1,26 +1,17 @@
 import { Injectable } from '@angular/core';
-import { UseExistingWebDriver } from 'protractor/built/driverProviders';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+import User from '../model/user.model';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class UserService {
-  private users = [
-    {
-      firstName: 'Arnaud',
-      lastName: 'Couderc',
-      role: 'rôle',
-      phone: '0123456789',
-      email: 'exemple@email.com'
-    },
-    {
-      firstName: 'Alexandre',
-      lastName: 'Ludwig',
-      role: 'rôle',
-      phone: '0123456789',
-      email: 'exemple@email.com'
-    }
-  ];
 
-  emitPosts() {
-    return this.users;
+  constructor(private afs: AngularFirestore) { }
+
+  public getAllUsers(): Observable<User[]> {
+    return this.afs.collection<User>('users').valueChanges();
   }
+
 }
