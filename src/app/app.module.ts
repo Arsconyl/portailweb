@@ -29,11 +29,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './pages/login/login.component';
 import { UserCardComponent } from './layout/user-card/user-card.component';
 import { TrombinoscopeComponent } from './pages/trombinoscope/trombinoscope.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'card', component: UserCardComponent },
   { path: 'trombinoscope',  component: TrombinoscopeComponent },
+  { path: 'dashboard', component: DashboardComponent }
 ];
 
 @NgModule({
@@ -42,7 +44,8 @@ const appRoutes: Routes = [
     HeaderComponent,
     LoginComponent,
     UserCardComponent,
-    TrombinoscopeComponent
+    TrombinoscopeComponent,
+    DashboardComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),

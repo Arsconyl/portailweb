@@ -43,4 +43,8 @@ export class LoginComponent implements OnInit {
     this.clickMessage = 'You are my hero!';
   }
 
+  onSubmit() {
+    console.warn(this.loginForm.value)
+  }
+
 }
