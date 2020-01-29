@@ -1,9 +1,8 @@
+import { APIKEY, PROJECTID } from './firebase';
+
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
-
-const APIKEY = 'AIzaSyCSIiUjt2M-67N4piVU7ztmB4SigclQ4gM';
-const PROJECTID = 'portailweb-52f4c';
 
 export const environment = {
   production: false,
