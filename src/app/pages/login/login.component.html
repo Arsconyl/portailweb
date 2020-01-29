@@ -20,7 +20,7 @@
       Password is <strong>required</strong>
     </mat-error>
   </mat-form-field>
-  <button type='button' (click)="onClickMe()" class="connect" mat-raised-button color="primary">Se connecter</button>
+  <button type='button' [disabled]="emailFormControl.hasError('email') || emailFormControl.hasError('required') || passwordFormControl.hasError('required')" (click)="onClickMe()" class="connect" mat-raised-button color="primary">Se connecter</button>
   {{clickMessage}}
 </form>
 
