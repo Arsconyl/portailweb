@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
+import {FormControl, FormGroupDirective, NgForm, Validators, FormBuilder} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
 
 /** Error when invalid control is dirty, touched, or submitted. */
@@ -16,22 +16,29 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  emailFormControl = new FormControl('', [
-    Validators.required,
-    Validators.email,
-  ]);
+  clickMessage = '';
 
-  passwordFormControl = new FormControl('', [
-    Validators.required,
-    Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$')
-  ]);
+  loginForm = this.fb.group({
+
+    emailFormControl : [
+      '',
+      Validators.required,
+      Validators.email,
+    ],
+    passwordFormControl : [
+      '',
+      Validators.required
+    ]
+  });
 
   matcher = new MyErrorStateMatcher();
+  constructor(private fb: FormBuilder) {
+
+  }
 
   ngOnInit() {
   }
 
-  clickMessage = '';
 
   onClickMe() {
     this.clickMessage = 'You are my hero!';
