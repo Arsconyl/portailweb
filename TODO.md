@@ -21,3 +21,4 @@
 - [ ] Créer une page permettant d’ajouter une actualité
 - [ ] Mettre en place les guards fournies par AngularFire pour bloquer l’accès aux pages et rediriger vers une autre page si besoin
 - [ ] Ajouter une fonction dans firebase functions pour créer un utilisateur dans la collection associée dans firestore à l’ajout dans utilisateur dans Firebase
+
