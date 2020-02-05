@@ -26,20 +26,22 @@ import { AngularFireFunctionsModule } from '@angular/fire/functions';
 import { AngularFireRemoteConfigModule } from '@angular/fire/remote-config';
 import { AngularFireModule } from '@angular/fire';
 import * as firebase from 'firebase';
+import { AngularFireAuthGuard, hasCustomClaim, redirectUnauthorizedTo, redirectLoggedInTo } from '@angular/fire/auth-guard';
+import { canActivate } from '@angular/fire/auth-guard';
 
 import {MaterialModule} from './modules/material/material.module';
 
 import {environment} from '../environments/environment';
 
+const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
+const redirectLoggedInToDashboard = () => redirectLoggedInTo(['dashboard']);
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: 'dashboard', canActivate: [AuthGuardService], pathMatch: 'full'},
+  { path: '', children: [], canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin }},
   { path: 'login', component: LoginComponent },
-  { path: 'trombinoscope', canActivate: [AuthGuardService], component: TrombinoscopeComponent },
-  { path: 'dashboard', canActivate: [AuthGuardService], component: DashboardComponent }
+  { path: 'trombinoscope', canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin }, component: TrombinoscopeComponent },
+  { path: 'dashboard', canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin }, component: DashboardComponent }
 ];
-
-firebase.initializeApp(environment.firebase);
 
 @NgModule({
   declarations: [
@@ -51,7 +53,6 @@ firebase.initializeApp(environment.firebase);
     DashboardComponent
   ],
   imports: [
-
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
@@ -65,12 +66,9 @@ firebase.initializeApp(environment.firebase);
     BrowserAnimationsModule,
     LayoutModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(
-      appRoutes,
-      { enableTracing: true } // <-- debugging purposes only
-    )
+    AppRoutingModule
   ],
-  providers: [AuthGuardService, UserService, AuthService],
+  providers: [AngularFireAuthGuard, AuthGuardService, UserService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

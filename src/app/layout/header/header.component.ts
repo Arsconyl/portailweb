@@ -3,6 +3,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -18,10 +19,12 @@ export class HeaderComponent {
     );
 
   constructor(private breakpointObserver: BreakpointObserver,
-              public authService: AuthService) {}
+              public authService: AuthService,
+              private router: Router) {}
 
   signOut() {
-    this.authService.signOutUser();
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 
 }
