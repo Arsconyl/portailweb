@@ -1,11 +1,17 @@
 <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
   <mat-form-field class="email field">
-    <input matInput placeholder="Email" formControlName="emailFormControl" [errorStateMatcher]="matcher">
+    <input matInput placeholder="Email" formControlName="email" [errorStateMatcher]="matcher">
+    <mat-hint *ngIf="loginForm.controls.email.errors?.required" class="help-block">Ce champ est obligatoire</mat-hint>
+    <mat-hint *ngIf="loginForm.controls.email.errors?.email" class="help-block">Vous n'avez pas saisi de mail</mat-hint>
   </mat-form-field>
 
+
   <mat-form-field class="password field">
-    <input matInput placeholder="Mot de passe" type="password" formControlName="passwordFormControl" [errorStateMatcher]="matcher">
+    <input matInput placeholder="Mot de passe" type="password" formControlName="password" [errorStateMatcher]="matcher">
+    <mat-hint *ngIf="loginForm.controls.password.errors?.required" class="help-block">Ce champ est obligatoire</mat-hint>
+    <mat-hint *ngIf="loginForm.controls.password.errors?.minLength" class="help-block">Le champ doit contenir au moins 8 caractères</mat-hint>
   </mat-form-field>
+
   <button type='submit' [disabled]="loginForm.invalid" (click)="onClickMe()" class="connect" mat-raised-button color="primary">Se connecter</button>
   {{clickMessage}}
 </form>
