@@ -1,23 +1,23 @@
 - [x] Generation du projet
 - [x] Repository sur github
 - [x] Installation angular material
-- [] (optionnel) Generation module qui regroupe l’ensemble des modules importés pour Angular Material
+- [ ] (optionnel) Generation module qui regroupe l’ensemble des modules importés pour Angular Material
 - [x] Création d’un composant de login
-- [] Créer le FormControl associé au formulaire de connexion
+- [ ] Créer le FormControl associé au formulaire de connexion
 - [x] Générer le menu
-- [] Générer le composant dashboard
+- [ ] Générer le composant dashboard
 - [x] Générer un composant fiche utilisateur
 - [x] Générer un composant "utilisateurs"
 - [x] Générer un service qui récupère la liste des utilisateurs
-- [] Rediriger vers le dashboard à la connexion
-- [] Mettre les liens dans le menu et rediriger vers les composants associés
+- [ ] Rediriger vers le dashboard à la connexion
+- [ ] Mettre les liens dans le menu et rediriger vers les composants associés
 - [x] Mettre en place un workflow sur github actions
-- [] Mettre en place l’authentification de l’utilisateur
+- [ ] Mettre en place l’authentification de l’utilisateur
 - [x] Créer une collection qui contient les utilisateurs dans Firebase Firestore (database)
 - [x] Récupérer cette collection dans Angular pour afficher la liste des utilisateurs
-- [] Créer un composant permettant de lister des actualités en HTML
-- [] Créer une collection contenant la liste des actualités dans Firestore
-- [] Récupérer ces actualités dans le projet Angular
-- [] Créer une page permettant d’ajouter une actualité
-- [] Mettre en place les guards fournies par AngularFire pour bloquer l’accès aux pages et rediriger vers une autre page si besoin
-- [] Ajouter une fonction dans firebase functions pour créer un utilisateur dans la collection associée dans firestore à l’ajout dans utilisateur dans Firebase
+- [ ] Créer un composant permettant de lister des actualités en HTML
+- [ ] Créer une collection contenant la liste des actualités dans Firestore
+- [ ] Récupérer ces actualités dans le projet Angular
+- [ ] Créer une page permettant d’ajouter une actualité
+- [ ] Mettre en place les guards fournies par AngularFire pour bloquer l’accès aux pages et rediriger vers une autre page si besoin
+- [ ] Ajouter une fonction dans firebase functions pour créer un utilisateur dans la collection associée dans firestore à l’ajout dans utilisateur dans Firebase
