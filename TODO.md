@@ -1,7 +1,7 @@
 - [x] Generation du projet
 - [x] Repository sur github
 - [x] Installation angular material
-- [ ] (optionnel) Generation module qui regroupe l’ensemble des modules importés pour Angular Material
+- [x] (optionnel) Generation module qui regroupe l’ensemble des modules importés pour Angular Material
 - [x] Création d’un composant de login
 - [x] Créer le FormControl associé au formulaire de connexion
 - [x] Générer le menu
