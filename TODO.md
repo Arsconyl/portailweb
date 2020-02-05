@@ -5,11 +5,11 @@
 - [x] Création d’un composant de login
 - [x] Créer le FormControl associé au formulaire de connexion
 - [x] Générer le menu
-- [ ] Générer le composant dashboard
+- [x] Générer le composant dashboard
 - [x] Générer un composant fiche utilisateur
 - [x] Générer un composant "utilisateurs"
 - [x] Générer un service qui récupère la liste des utilisateurs
-- [ ] Rediriger vers le dashboard à la connexion
+- [x] Rediriger vers le dashboard à la connexion
 - [ ] Mettre les liens dans le menu et rediriger vers les composants associés
 - [x] Mettre en place un workflow sur github actions
 - [ ] Mettre en place l’authentification de l’utilisateur
