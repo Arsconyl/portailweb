@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroupDirective, NgForm, Validators, FormBuilder, FormGroup} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
+import { AuthService } from 'src/app/services/auth/auth.service';
+import { Router } from '@angular/router';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -16,30 +18,36 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  clickMessage = '';
   loginForm: FormGroup;
-
+  errorMessage: string;
 
 
   matcher = new MyErrorStateMatcher();
-  constructor() {
+  constructor(private fb: FormBuilder,
+              public authService: AuthService,
+              private router: Router) {
     this.loginForm = new FormGroup({
       email : new FormControl('', Validators.compose([Validators.email, Validators.required])),
       password: new FormControl('', Validators.compose([Validators.required, Validators.minLength(8)]))
     });
-
   }
 
   ngOnInit() {
   }
 
 
-  onClickMe() {
-    this.clickMessage = 'You are my hero!';
-  }
-
   onSubmit() {
-    console.warn(this.loginForm.value)
-  }
+    const email = this.loginForm.get('email').value;
+    const password = this.loginForm.get('password').value;
 
+    this.authService.signInUser(email, password).then(
+      () => {
+        this.router.navigate(['/dashboard']);
+      },
+      (error) => {
+        this.errorMessage = error;
+      }
+    );
+  }
 }
+

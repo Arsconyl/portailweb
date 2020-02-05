@@ -11,8 +11,7 @@
     <mat-hint *ngIf="loginForm.controls.password.errors?.required && (loginForm.controls.password.touched || loginForm.controls.password.dirty)" class="help-block">Ce champ est obligatoire</mat-hint>
     <mat-hint *ngIf="loginForm.controls.password.errors?.minLength" class="help-block">Le champ doit contenir au moins 8 caractères</mat-hint>
   </mat-form-field>
-
-  <button type='submit' [disabled]="loginForm.invalid" (click)="onClickMe()" class="connect" mat-raised-button color="primary">Se connecter</button>
-  {{clickMessage}}
+  <button type='submit' [disabled]="loginForm.invalid" class="connect" mat-raised-button color="primary">Se connecter</button>
+  {{errorMessage}}
 </form>
 

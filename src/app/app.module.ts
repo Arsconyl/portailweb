@@ -10,6 +10,8 @@ import { AngularFireFunctionsModule } from '@angular/fire/functions';
 import { AngularFireRemoteConfigModule } from '@angular/fire/remote-config';
 import { environment } from '../environments/environment';
 
+import * as firebase from 'firebase';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -30,13 +32,18 @@ import { LoginComponent } from './pages/login/login.component';
 import { UserCardComponent } from './layout/user-card/user-card.component';
 import { TrombinoscopeComponent } from './pages/trombinoscope/trombinoscope.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { AuthGuardService } from './services/auth-guard/auth-guard.service';
+import { UserService } from './services/user/user.service';
+import { AuthService } from './services/auth/auth.service';
 
 const appRoutes: Routes = [
+  { path: '', redirectTo: 'dashboard', canActivate: [AuthGuardService]},
   { path: 'login', component: LoginComponent },
-  { path: 'card', component: UserCardComponent },
-  { path: 'trombinoscope',  component: TrombinoscopeComponent },
-  { path: 'dashboard', component: DashboardComponent }
+  { path: 'trombinoscope', canActivate: [AuthGuardService], component: TrombinoscopeComponent },
+  { path: 'dashboard', canActivate: [AuthGuardService], component: DashboardComponent }
 ];
+
+firebase.initializeApp(environment.firebase);
 
 @NgModule({
   declarations: [
@@ -75,7 +82,7 @@ const appRoutes: Routes = [
       { enableTracing: true } // <-- debugging purposes only
     )
   ],
-  providers: [],
+  providers: [AuthGuardService, UserService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
