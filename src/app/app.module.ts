@@ -1,8 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-
-
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,23 +22,11 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireFunctionsModule } from '@angular/fire/functions';
 import { AngularFireRemoteConfigModule } from '@angular/fire/remote-config';
 import { AngularFireModule } from '@angular/fire';
-import * as firebase from 'firebase';
-import { AngularFireAuthGuard, hasCustomClaim, redirectUnauthorizedTo, redirectLoggedInTo } from '@angular/fire/auth-guard';
-import { canActivate } from '@angular/fire/auth-guard';
+import { AngularFireAuthGuard } from '@angular/fire/auth-guard';
 
 import {MaterialModule} from './modules/material/material.module';
 
 import {environment} from '../environments/environment';
-
-const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
-const redirectLoggedInToDashboard = () => redirectLoggedInTo(['dashboard']);
-
-const appRoutes: Routes = [
-  { path: '', children: [], canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin }},
-  { path: 'login', component: LoginComponent },
-  { path: 'trombinoscope', canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin }, component: TrombinoscopeComponent },
-  { path: 'dashboard', canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin }, component: DashboardComponent }
-];
 
 @NgModule({
   declarations: [
