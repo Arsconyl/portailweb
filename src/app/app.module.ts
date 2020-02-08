@@ -23,6 +23,7 @@ import { AngularFireFunctionsModule } from '@angular/fire/functions';
 import { AngularFireRemoteConfigModule } from '@angular/fire/remote-config';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthGuard } from '@angular/fire/auth-guard';
+import {FroalaEditorModule, FroalaViewModule} from 'angular-froala-wysiwyg';
 
 import {MaterialModule} from './modules/material/material.module';
 
@@ -51,7 +52,8 @@ import {environment} from '../environments/environment';
     BrowserAnimationsModule,
     LayoutModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FroalaEditorModule.forRoot(), FroalaViewModule.forRoot()
   ],
   providers: [AngularFireAuthGuard, AuthGuardService, UserService, AuthService],
   bootstrap: [AppComponent]
