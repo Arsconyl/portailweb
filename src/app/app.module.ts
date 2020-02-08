@@ -28,6 +28,7 @@ import {FroalaEditorModule, FroalaViewModule} from 'angular-froala-wysiwyg';
 import {MaterialModule} from './modules/material/material.module';
 
 import {environment} from '../environments/environment';
+import { FroalaComponent } from './froala/froala.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import {environment} from '../environments/environment';
     LoginComponent,
     UserCardComponent,
     TrombinoscopeComponent,
-    DashboardComponent
+    DashboardComponent,
+    FroalaComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
