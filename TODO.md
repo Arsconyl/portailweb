@@ -10,9 +10,9 @@
 - [x] Générer un composant "utilisateurs"
 - [x] Générer un service qui récupère la liste des utilisateurs
 - [x] Rediriger vers le dashboard à la connexion
-- [ ] Mettre les liens dans le menu et rediriger vers les composants associés
+- [x] Mettre les liens dans le menu et rediriger vers les composants associés
 - [x] Mettre en place un workflow sur github actions
-- [ ] Mettre en place l’authentification de l’utilisateur
+- [x] Mettre en place l’authentification de l’utilisateur
 - [x] Créer une collection qui contient les utilisateurs dans Firebase Firestore (database)
 - [x] Récupérer cette collection dans Angular pour afficher la liste des utilisateurs
 - [ ] Créer un composant permettant de lister des actualités en HTML
