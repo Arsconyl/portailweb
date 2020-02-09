@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FroalaComponent } from './froala.component';
+import { HtmleditorComponent } from './htmleditor.component';
 
-describe('FroalaComponent', () => {
-  let component: FroalaComponent;
-  let fixture: ComponentFixture<FroalaComponent>;
+describe('HtmleditorComponent', () => {
+  let component: HtmleditorComponent;
+  let fixture: ComponentFixture<HtmleditorComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FroalaComponent ]
+      declarations: [ HtmleditorComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FroalaComponent);
+    fixture = TestBed.createComponent(HtmleditorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

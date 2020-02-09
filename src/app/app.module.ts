@@ -23,12 +23,12 @@ import { AngularFireFunctionsModule } from '@angular/fire/functions';
 import { AngularFireRemoteConfigModule } from '@angular/fire/remote-config';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthGuard } from '@angular/fire/auth-guard';
-import {FroalaEditorModule, FroalaViewModule} from 'angular-froala-wysiwyg';
+import {QuillModule} from 'ngx-quill';
 
 import {MaterialModule} from './modules/material/material.module';
 
 import {environment} from '../environments/environment';
-import { FroalaComponent } from './froala/froala.component';
+import { HtmleditorComponent } from './htmleditor/htmleditor.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +38,7 @@ import { FroalaComponent } from './froala/froala.component';
     UserCardComponent,
     TrombinoscopeComponent,
     DashboardComponent,
-    FroalaComponent
+    HtmleditorComponent,
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
@@ -55,7 +55,7 @@ import { FroalaComponent } from './froala/froala.component';
     LayoutModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    FroalaEditorModule.forRoot(), FroalaViewModule.forRoot()
+    QuillModule.forRoot()
   ],
   providers: [AngularFireAuthGuard, AuthGuardService, UserService, AuthService],
   bootstrap: [AppComponent]
