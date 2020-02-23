@@ -1,16 +1,22 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { auth } from 'firebase/app';
+import { AngularFireDatabase } from '@angular/fire/database';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  userData: Observable<firebase.User>;
+  private userData: Observable<firebase.User>;
+  public currentUserId: string;
 
-  constructor(private afAuth: AngularFireAuth) {
+  constructor(private afAuth: AngularFireAuth, private db: AngularFireDatabase) {
     this.userData = afAuth.authState;
+  }
+
+  getCurrentUserEmail() {
+    return this.afAuth.auth.currentUser.email;
   }
 
   login(email, password) {

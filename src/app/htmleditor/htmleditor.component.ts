@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import {AuthService} from '../services/auth/auth.service';
 
 @Component({
   selector: 'app-htmleditor',
@@ -11,22 +12,25 @@ export class HtmleditorComponent implements OnInit {
   editorForm: FormGroup;
   editorStyle = {
     height: '300px'
-  }
+  };
+
   editorContent: String;
 
-  constructor() { }
+  constructor(public auth: AuthService) { }
 
   ngOnInit() {
     this.editorForm = new FormGroup({
       'editor': new FormControl(null)
-    })
+    });
   }
 
-  printOutput(){
+  printOutput() {
     this.editorContent = this.editorForm.get('editor').value;
   }
 
-  onSubmit(){
+  onSubmit() {
+
+    console.log(this.auth.getCurrentUserEmail());
 
   }
 

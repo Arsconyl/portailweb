@@ -33,6 +33,8 @@ const routes: Routes = [
   },
   {
     path: 'news',
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: redirectUnauthorizedToLogin },
     component: HtmleditorComponent
   }
 ];

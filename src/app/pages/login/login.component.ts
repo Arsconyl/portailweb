@@ -18,11 +18,11 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+
   loginForm: FormGroup;
   errorMessage: string;
-
-
   matcher = new MyErrorStateMatcher();
+
   constructor(private fb: FormBuilder,
               public authService: AuthService,
               private router: Router) {

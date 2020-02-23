@@ -18,7 +18,7 @@
 - [ ] Créer un composant permettant de lister des actualités en HTML
 - [ ] Créer une collection contenant la liste des actualités dans Firestore
 - [ ] Récupérer ces actualités dans le projet Angular
-- [ ] Créer une page permettant d’ajouter une actualité
+- [x] Créer une page permettant d’ajouter une actualité
 - [ ] Mettre en place les guards fournies par AngularFire pour bloquer l’accès aux pages et rediriger vers une autre page si besoin
 - [ ] Ajouter une fonction dans firebase functions pour créer un utilisateur dans la collection associée dans firestore à l’ajout dans utilisateur dans Firebase
 
