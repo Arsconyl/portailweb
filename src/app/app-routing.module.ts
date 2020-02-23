@@ -32,7 +32,7 @@ const routes: Routes = [
     component: DashboardComponent
   },
   {
-    path: 'HTMLeditor',
+    path: 'news',
     component: HtmleditorComponent
   }
 ];
