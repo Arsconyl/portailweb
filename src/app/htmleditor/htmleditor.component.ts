@@ -9,6 +9,10 @@ import { FormGroup, FormControl } from '@angular/forms';
 export class HtmleditorComponent implements OnInit {
 
   editorForm: FormGroup;
+  editorStyle = {
+    height: '300px'
+  }
+  editorContent: String;
 
   constructor() { }
 
@@ -16,6 +20,10 @@ export class HtmleditorComponent implements OnInit {
     this.editorForm = new FormGroup({
       'editor': new FormControl(null)
     })
+  }
+
+  printOutput(){
+    this.editorContent = this.editorForm.get('editor').value;
   }
 
   onSubmit(){

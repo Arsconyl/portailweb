@@ -55,7 +55,9 @@ import { HtmleditorComponent } from './htmleditor/htmleditor.component';
     LayoutModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    QuillModule.forRoot()
+    QuillModule.forRoot({
+      placeholder: 'Insérer du texte ici...'
+    })
   ],
   providers: [AngularFireAuthGuard, AuthGuardService, UserService, AuthService],
   bootstrap: [AppComponent]

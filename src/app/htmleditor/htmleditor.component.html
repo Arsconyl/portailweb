@@ -1,19 +1,22 @@
-<!-- <div class="container">
+<div class="container">
   <div class="row pt-5">
-    <div class="col-md-8"> -->
+    <div class="col-md-8">
 
       <form [formGroup]="editorForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
           <label for="editor">
             <h3>Éditeur HTML</h3>
           </label>
-          <quill-editor></quill-editor>
+          <quill-editor [style]="editorStyle" formControlName="editor" (onContentChanged)="printOutput($event)"></quill-editor>
         </div>
+
+        <button>Submit</button>
       </form>
-    <!-- </div>
+    </div>
+
     <div class="col-md-4 bg-light p-4">
       <h3>Output</h3>
-      <p class="my-5"></p>
+      <p [innerHTML]="editorContent"></p>
     </div>
   </div>
-</div> -->
+</div>
