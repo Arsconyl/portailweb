@@ -15,7 +15,7 @@
 - [x] Mettre en place l’authentification de l’utilisateur
 - [x] Créer une collection qui contient les utilisateurs dans Firebase Firestore (database)
 - [x] Récupérer cette collection dans Angular pour afficher la liste des utilisateurs
-- [ ] Créer un composant permettant de lister des actualités en HTML
+- [x] Créer un composant permettant de lister des actualités en HTML
 - [ ] Créer une collection contenant la liste des actualités dans Firestore
 - [ ] Récupérer ces actualités dans le projet Angular
 - [x] Créer une page permettant d’ajouter une actualité
