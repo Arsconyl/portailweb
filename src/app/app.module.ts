@@ -29,6 +29,7 @@ import {MaterialModule} from './modules/material/material.module';
 
 import {environment} from '../environments/environment';
 import { HtmleditorComponent } from './htmleditor/htmleditor.component';
+import { HtmlarticlesComponent } from './htmlarticles/htmlarticles.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { HtmleditorComponent } from './htmleditor/htmleditor.component';
     TrombinoscopeComponent,
     DashboardComponent,
     HtmleditorComponent,
+    HtmlarticlesComponent,
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
