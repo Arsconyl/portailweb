@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import {UserService} from '../services/user/user.service';
 import User from '../model/user.model';
+import Article from '../model/article.model';
+import {HTMLArticleService} from '../services/htmlArticle/htmlarticle.service';
 
 @Component({
   selector: 'app-htmleditor',
@@ -20,11 +22,12 @@ export class HtmleditorComponent implements OnInit {
 
   editorContent: String;
 
-  constructor(public user: UserService) {}
+  constructor(public user: UserService, private articleService: HTMLArticleService){}
 
   ngOnInit() {
     this.editorForm = new FormGroup({
-      'editor': new FormControl(null)
+      'editor': new FormControl(null),
+      'title': new FormControl(null)
     });
     this.user.getCurrentUser().subscribe(users => {
       this.users = users;
@@ -37,6 +40,13 @@ export class HtmleditorComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log( this.user.getCurrentUser());
+    console.log(this.editorForm.get('title').value);
+    const newArticle: Article = {
+      title: this.editorForm.get('title').value,
+      content: this.editorForm.get('editor').value
+    };
+
+    //let newArticle = new Article(this.editorForm.get('title').value, this.editorForm.get('editor').value);
+    this.articleService.createArticle(newArticle);
   }
 }

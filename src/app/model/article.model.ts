@@ -1,7 +1,10 @@
-import User from './user.model';
 
 export default interface Article {
-  author: User;
   title: string;
   content: string;
+
+  // constructor(title: string, content: string) {
+  //   this.title = title;
+  //   this.content = content;
+  // }
 }

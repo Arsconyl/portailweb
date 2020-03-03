@@ -3,6 +3,10 @@
     <label for="editor">
       <h1>Éditeur HTML</h1>
     </label>
+    <mat-form-field appearance="outline" >
+      <mat-label>Titre</mat-label>
+      <input matInput placeholder="Titre de l'article"formControlName="title" >
+    </mat-form-field>
     <quill-editor [style]="editorStyle" formControlName="editor" (onContentChanged)="printOutput($event)">
     </quill-editor>
     <button type="submit" mat-raised-button color="primary" style="margin-top: 20px;">Envoyer</button>
