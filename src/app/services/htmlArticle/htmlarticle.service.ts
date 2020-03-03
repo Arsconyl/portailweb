@@ -14,11 +14,10 @@ export class HTMLArticleService {
   }
 
   getArticles() {
-    return this.firestore.collection<Article>("articles").snapshotChanges();
+    return this.firestore.collection<Article>("articles").valueChanges();
   }
 
   deleteArticle(ArticleID) {
     this.firestore.doc('articles/'+ ArticleID).delete();
-
   }
 }
