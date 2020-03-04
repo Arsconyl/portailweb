@@ -24,7 +24,7 @@ exports.triggerUser = functions.auth.user().onCreate((user) => {
       lastName:'',
       phone:'',
       photo:'',
-      role:'employé',
+      role:'admin',
       team:'',
     });
 });

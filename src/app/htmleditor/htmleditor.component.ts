@@ -4,6 +4,7 @@ import {UserService} from '../services/user/user.service';
 import User from '../model/user.model';
 import Article from '../model/article.model';
 import {HTMLArticleService} from '../services/htmlArticle/htmlarticle.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-htmleditor',
@@ -13,31 +14,26 @@ import {HTMLArticleService} from '../services/htmlArticle/htmlarticle.service';
 export class HtmleditorComponent implements OnInit {
 
 
-  users: User[];
-  currentUser: User;
   editorForm: FormGroup;
   editorStyle = {
     height: '300px'
   };
+  currentUser: User;
+  isAdmin: Observable<boolean>;
 
-  editorContent: String;
-
-  constructor(public user: UserService, private articleService: HTMLArticleService){}
+  constructor(public userService: UserService, private articleService: HTMLArticleService){}
 
   ngOnInit() {
     this.editorForm = new FormGroup({
       'editor': new FormControl(null),
       'title': new FormControl(null)
     });
-    this.user.getCurrentUser().subscribe(users => {
-      this.users = users;
+    this.userService.getCurrentUser().subscribe(user =>{
+      this.currentUser = user;
     });
-    this.currentUser = this.users[0];
+    this.isAdmin = this.userService.isAdmin();
   }
 
-  printOutput() {
-    this.editorContent = this.editorForm.get('editor').value;
-  }
 
   onSubmit() {
     console.log(this.editorForm.get('title').value);
@@ -49,4 +45,9 @@ export class HtmleditorComponent implements OnInit {
     //let newArticle = new Article(this.editorForm.get('title').value, this.editorForm.get('editor').value);
     this.articleService.createArticle(newArticle);
   }
+
+  showInfo() {
+    console.log(this.currentUser.role);
+  }
+
 }

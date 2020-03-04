@@ -1,5 +1,5 @@
-<div style="margin: 10px;">
-  <form [formGroup]="editorForm" (ngSubmit)="onSubmit()">
+<div style="margin: 10px;" *ngIf="isAdmin | async">
+  <form [formGroup]="editorForm" (ngSubmit)="onSubmit()" >
     <label for="editor">
       <h1>Éditeur HTML</h1>
     </label>
@@ -7,21 +7,18 @@
       <mat-label>Titre</mat-label>
       <input matInput placeholder="Titre de l'article"formControlName="title" >
     </mat-form-field>
-    <quill-editor [style]="editorStyle" formControlName="editor" (onContentChanged)="printOutput($event)">
+    <quill-editor [style]="editorStyle" formControlName="editor" >
     </quill-editor>
     <button type="submit" mat-raised-button color="primary" style="margin-top: 20px;">Envoyer</button>
   </form>
 </div>
 
-<div style="margin-left: 10px; margin-bottom: 10px; background-color: lightgrey;">
-  <h1>Aperçu </h1>
-  <p [innerHTML]="editorContent"></p>
-</div>
 
-{{users[0].role}}
-
+<h1>Actualités</h1>
 <div>
   <app-htmlarticles>
 
+
   </app-htmlarticles>
 </div>
+
