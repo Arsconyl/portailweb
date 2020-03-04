@@ -42,7 +42,6 @@ export class HtmleditorComponent implements OnInit {
       content: this.editorForm.get('editor').value
     };
 
-    //let newArticle = new Article(this.editorForm.get('title').value, this.editorForm.get('editor').value);
     this.articleService.createArticle(newArticle);
   }
 

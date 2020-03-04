@@ -24,8 +24,15 @@ export class UserService {
    return  this.afs.doc<User>(`users/${this.authService.getCurrentUserId()}`).valueChanges().pipe(take(1));
   }
 
-  public isAdmin(): Observable<boolean> {
+  public isClient(): Observable<boolean> {
+    return this.getCurrentUser().pipe(map(user => user.role === 'client'));
+  }
 
+  public isEmploye(): Observable<boolean> {
+    return this.getCurrentUser().pipe(map(user => user.role === 'employé'));
+  }
+
+  public isAdmin(): Observable<boolean> {
     return this.getCurrentUser().pipe(map(user => user.role === 'admin'));
   }
 
@@ -36,5 +43,4 @@ export class UserService {
     });
     return temp.role;
   }
-
 }
