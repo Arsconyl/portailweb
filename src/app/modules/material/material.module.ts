@@ -11,6 +11,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule} from '@angular/material/grid-list';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { MatGridListModule} from '@angular/material/grid-list';
     MatRadioModule,
     MatCardModule,
     MatGridListModule,
+    MatProgressBarModule,
     CommonModule
   ],
   imports: [

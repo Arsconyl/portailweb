@@ -1,0 +1,25 @@
+<div class="uploader">
+<div class="dropzone"
+     appDropzone
+     (hovered)="toggleHover($event)"
+     (dropped)="onDrop($event)"
+     [class.hovering]="isHovering">
+
+
+     <h3>Ajouter des fichiers</h3>
+     <div class="file">
+       <label class="file-label">
+         <p>ou&nbsp;:&nbsp;</p><span></span>
+         <button type="button" mat-raised-button color="primary" (click)="fileInput.click()">Choisir un fichier</button>
+         <input hidden #fileInput class="file-input" type="file" (change)="onDrop($event.target.files)">
+       </label>
+     </div>
+</div>
+
+<h3>Uploads</h3>
+
+<div *ngFor="let file of files" class="uploads">
+  <app-upload-task [file]="file"></app-upload-task>
+</div>
+
+</div>
