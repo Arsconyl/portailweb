@@ -12,6 +12,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule} from '@angular/material/grid-list';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     MatCardModule,
     MatGridListModule,
     MatProgressBarModule,
+    MatProgressSpinnerModule,
     CommonModule
   ],
   imports: [

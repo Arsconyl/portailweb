@@ -1,8 +1,7 @@
 import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
 import { AngularFireStorage, AngularFireUploadTask } from '@angular/fire/storage';
-import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
-import { finalize, tap } from 'rxjs/operators';
+import { finalize } from 'rxjs/operators';
 import { FileService } from 'src/app/services/file/file.service';
 
 @Component({
@@ -41,18 +40,11 @@ export class UploadTaskComponent implements OnInit {
     this.percentage = this.task.percentageChanges();
 
     this.snapshot   = this.task.snapshotChanges().pipe(
-      tap(console.log),
       // The file's download URL
-      finalize( async() =>  {
+      finalize( async () =>  {
         this.url = await ref.getDownloadURL().toPromise();
-
         this.fileService.addFile({name: this.file.name, url: this.url, path});
       }),
     );
   }
-
-  isActive(snapshot) {
-    return snapshot.state === 'running' && snapshot.bytesTransferred < snapshot.totalBytes;
-  }
-
 }

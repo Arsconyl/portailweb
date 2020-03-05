@@ -1,10 +1,5 @@
-import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
-import { getClassNameForExtension } from 'font-awesome-filetypes';
-import { getIconForExtension } from 'font-awesome-filetypes';
+import { Component, OnInit } from '@angular/core';
 import { AngularFireStorage, AngularFireUploadTask } from '@angular/fire/storage';
-import { AngularFirestore } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
-import { finalize, tap } from 'rxjs/operators';
 import { FileService } from 'src/app/services/file/file.service';
 
 @Component({
@@ -18,11 +13,6 @@ export class UploaderComponent implements OnInit {
   documents: any[] = [];
 
   files: File[] = [];
-  filename = 'foobar.docx';
-  extension = this.filename.split('.').pop();
-
-  className = 'fa ' + getClassNameForExtension(this.extension);
-  icon = getIconForExtension(this.extension);
 
   constructor(private storage: AngularFireStorage, private fileService: FileService) { }
 
