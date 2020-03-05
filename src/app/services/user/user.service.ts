@@ -3,8 +3,9 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable, BehaviorSubject, of } from 'rxjs';
 import User from '../../model/user.model';
 import {AuthService} from '../auth/auth.service';
-import { switchMap, map, take, tap} from 'rxjs/operators';
+import { switchMap, map, take, tap, first} from 'rxjs/operators';
 import { UserCardComponent } from 'src/app/layout/user-card/user-card.component';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ import { UserCardComponent } from 'src/app/layout/user-card/user-card.component'
 export class UserService {
 
 
-  constructor(private afs: AngularFirestore, private authService: AuthService) {
+  constructor(private afs: AngularFirestore, private authService: AuthService, private afAuth: AngularFireAuth) {
    }
 
   public getAllUsers(): Observable<User[]> {
@@ -20,8 +21,8 @@ export class UserService {
   }
 
   public getCurrentUser(): Observable<User> {
-    // return  this.afs.collection<User>('users', ref => ref.where('email', '==', this.authService.getCurrentUserEmail())).valueChanges();
-   return  this.afs.doc<User>(`users/${this.authService.getCurrentUserId()}`).valueChanges().pipe(take(1));
+  // return  this.afs.doc<User>(`users/${this.authService.getCurrentUserId()}`).valueChanges().pipe(take(1));
+   return  this.afs.doc<User>(`users/${this.afAuth.auth.currentUser.uid}`).valueChanges().pipe(first());
   }
 
   public isClient(): Observable<boolean> {
