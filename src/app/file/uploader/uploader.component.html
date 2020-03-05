@@ -15,11 +15,13 @@
        </label>
      </div>
 </div>
-
+<span [innerHTML]="icon"></span>
 <h3>Uploads</h3>
 
 <div *ngFor="let file of files" class="uploads">
   <app-upload-task [file]="file"></app-upload-task>
 </div>
+
+<app-file-card [file]="doc" *ngFor="let doc of documents"></app-file-card>
 
 </div>
