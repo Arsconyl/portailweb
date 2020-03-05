@@ -29,7 +29,7 @@ export class UploadTaskComponent implements OnInit {
   startUpload() {
 
     // The storage path
-    const path = `test/${Date.now()}_${this.file.name}`;
+    const path = `${Date.now()}_${this.file.name}`;
 
     // Reference to storage bucket
     const ref = this.storage.ref(path);
@@ -46,7 +46,7 @@ export class UploadTaskComponent implements OnInit {
       finalize( async() =>  {
         this.url = await ref.getDownloadURL().toPromise();
 
-        this.fileService.addFile({url: this.url, path});
+        this.fileService.addFile({name: this.file.name, url: this.url, path});
       }),
     );
   }

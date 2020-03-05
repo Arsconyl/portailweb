@@ -5,7 +5,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { TrombinoscopeComponent } from './pages/trombinoscope/trombinoscope.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { HtmleditorComponent } from './htmleditor/htmleditor.component';
-import { UploaderComponent } from './upload/uploader/uploader.component';
+import { UploaderComponent } from './file/uploader/uploader.component';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 

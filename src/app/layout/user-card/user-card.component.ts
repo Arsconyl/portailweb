@@ -11,13 +11,6 @@ export class UserCardComponent implements OnInit {
   @Input() user: User;
 
   constructor() {
-    // this.user = {
-    //   firstName: 'Arnaud',
-    //   lastName: 'Couderc',
-    //   role: 'rôle',
-    //   phone: '0123456789',
-    //   email: 'exemple@email.com'
-    // };
   }
 
   ngOnInit() {

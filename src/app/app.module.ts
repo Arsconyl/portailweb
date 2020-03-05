@@ -30,9 +30,10 @@ import {MaterialModule} from './modules/material/material.module';
 import {environment} from '../environments/environment';
 import { HtmleditorComponent } from './htmleditor/htmleditor.component';
 import { HtmlarticlesComponent } from './htmlarticles/htmlarticles.component';
-import { DropzoneDirective } from './upload/directive/dropzone.directive';
-import { UploaderComponent } from './upload/uploader/uploader.component';
-import { UploadTaskComponent } from './upload/upload-task/upload-task.component';
+import { DropzoneDirective } from './file/directive/dropzone.directive';
+import { UploaderComponent } from './file/uploader/uploader.component';
+import { UploadTaskComponent } from './file/upload-task/upload-task.component';
+import { FileCardComponent } from './file/file-card/file-card.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { UploadTaskComponent } from './upload/upload-task/upload-task.component'
     DropzoneDirective,
     UploaderComponent,
     UploadTaskComponent,
+    FileCardComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
