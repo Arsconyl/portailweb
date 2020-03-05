@@ -12,9 +12,10 @@ import {map} from 'rxjs/operators';
 export class UserCardComponent implements OnInit {
 
   @Input() user: User;
+  @Input() currentUser: User;
   isAdmin: boolean;
   isEmploye: boolean;
-  currentUser: User;
+  // currentUser: User;
 
   constructor(private userService: UserService) {
     // this.user = {
@@ -30,14 +31,18 @@ export class UserCardComponent implements OnInit {
   ngOnInit() {
     forkJoin(
       this.userService.isAdmin(),
-      this.userService.isEmploye(),
-      this.userService.getCurrentUser()
+      this.userService.isEmploye()
+      // this.userService.getCurrentUser()
     )
-      .subscribe(([admin, employe, user]) => {
+      .subscribe(([admin, employe]) => {
         this.isAdmin = admin;
         this.isEmploye = employe;
-        this.currentUser = user;
+        // this.currentUser = user;
       });
+  }
+
+  isEquals() {
+    return (this.user.email == this.currentUser.email)
   }
 
 }

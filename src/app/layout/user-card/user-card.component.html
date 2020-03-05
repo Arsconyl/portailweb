@@ -12,7 +12,7 @@
         <mat-icon>email</mat-icon>&nbsp;{{user.email}}
     </div>
   </mat-card-content>
-<mat-card-actions *ngIf="(isEmploye)">
+<mat-card-actions *ngIf="(isAdmin || (isEmploye && isEquals()))">
     <button mat-button>Modifier</button>
   </mat-card-actions>
 </mat-card>

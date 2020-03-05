@@ -21,8 +21,8 @@ export class UserService {
   }
 
   public getCurrentUser(): Observable<User> {
-  // return  this.afs.doc<User>(`users/${this.authService.getCurrentUserId()}`).valueChanges().pipe(take(1));
-   return  this.afs.doc<User>(`users/${this.afAuth.auth.currentUser.uid}`).valueChanges().pipe(first());
+    // return  this.afs.doc<User>(`users/${this.authService.getCurrentUserId()}`).valueChanges().pipe(take(1));
+    return  this.afs.doc<User>(`users/${this.afAuth.auth.currentUser.uid}`).valueChanges().pipe(take(1));
   }
 
   public isClient(): Observable<boolean> {
@@ -30,7 +30,7 @@ export class UserService {
   }
 
   public isEmploye(): Observable<boolean> {
-    return this.getCurrentUser().pipe(map(user => user.role === 'employé'));
+    return this.getCurrentUser().pipe(map(user => user.role === 'employe'));
   }
 
   public isAdmin(): Observable<boolean> {
