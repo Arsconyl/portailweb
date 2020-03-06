@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireStorage, AngularFireUploadTask } from '@angular/fire/storage';
 import { FileService } from 'src/app/services/file/file.service';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-uploader',
@@ -14,7 +15,9 @@ export class UploaderComponent implements OnInit {
 
   files: File[] = [];
 
-  constructor(private storage: AngularFireStorage, private fileService: FileService) { }
+  isAllowed: boolean;
+
+  constructor(private storage: AngularFireStorage, private fileService: FileService, private userService: UserService) { }
 
   toggleHover(event: boolean) {
     this.isHovering = event;
@@ -29,6 +32,10 @@ export class UploaderComponent implements OnInit {
   ngOnInit() {
     this.fileService.getAllFiles().subscribe(docs => {
       this.documents = docs;
+    });
+
+    this.userService.isClient().subscribe(isClient => {
+      this.isAllowed = !isClient;
     });
   }
 }

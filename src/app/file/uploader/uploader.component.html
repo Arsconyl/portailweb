@@ -1,5 +1,5 @@
 <div class="uploader">
-  <div class="dropzone" appDropzone (hovered)="toggleHover($event)" (dropped)="onDrop($event)"
+  <div *ngIf="isAllowed" class="dropzone" appDropzone (hovered)="toggleHover($event)" (dropped)="onDrop($event)"
     [class.hovering]="isHovering">
 
     <h3>Ajouter des fichiers en les glissant ici</h3>
