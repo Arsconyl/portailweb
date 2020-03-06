@@ -12,11 +12,12 @@
     </div>
   </div>
 
-    <div class="upload" *ngFor="let file of files" class="uploads">
-      <app-upload-task [file]="file"></app-upload-task>
+  <div class="upload" *ngFor="let file of files">
+    <app-upload-task class="upload" [file]="file"></app-upload-task>
+    <br />
   </div>
 
-<div class="docs">
-  <app-file-card [file]="doc" *ngFor="let doc of documents"></app-file-card>
-</div>
+  <div class="docs">
+    <app-file-card [file]="doc" *ngFor="let doc of documents"></app-file-card>
+  </div>
 </div>

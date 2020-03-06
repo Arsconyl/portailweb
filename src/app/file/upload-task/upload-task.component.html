@@ -1,6 +1,7 @@
-<div *ngIf="snapshot | async as snap">
-  <div *ngIf="percentage | async as pct">
-    <mat-progress-bar [value]="pct" max="100"></mat-progress-bar>
-    <!-- {{ pct | number }}% -->
+<div class="progress" *ngIf="snapshot | async as snap">
+  <div class="progress" *ngIf="percentage | async as pct">
+    <mat-progress-bar color="primary" mode="buffer" bufferValue="0" [value]="pct" max="100"></mat-progress-bar>
+    <br />
+    <span class="file">{{file.name}}</span>
   </div>
 </div>
