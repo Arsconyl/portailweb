@@ -15,6 +15,7 @@ export class UserCardComponent implements OnInit {
   @Input() currentUser: User;
   isAdmin: boolean;
   isEmploye: boolean;
+  onModif: boolean = false;
   // currentUser: User;
 
   constructor(private userService: UserService) {
@@ -32,17 +33,23 @@ export class UserCardComponent implements OnInit {
     forkJoin(
       this.userService.isAdmin(),
       this.userService.isEmploye()
-      // this.userService.getCurrentUser()
     )
       .subscribe(([admin, employe]) => {
         this.isAdmin = admin;
         this.isEmploye = employe;
-        // this.currentUser = user;
       });
   }
 
-  isEquals() {
-    return (this.user.email == this.currentUser.email)
+  isCurrentUser() {
+    return (this.user.email === this.currentUser.email);
+  }
+
+  modification() {
+    if (this.onModif) {
+      this.onModif = false;
+    } else {
+      this.onModif = true;
+    }
   }
 
 }
