@@ -41,7 +41,12 @@ export class UserCardComponent implements OnInit {
 
   modification() {
     const dialogRef = this.dialog.open(EditUserComponent, {
-      data: this.user
+      // data: this.user
+      data: {email: this.user.email,
+        phone: this.user.phone,
+        firstName: this.user.firstName,
+        lastName: this.user.lastName,
+        role: this.user.role}
     });
 
     dialogRef.afterClosed().subscribe(result => {
