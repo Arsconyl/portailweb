@@ -45,9 +45,12 @@ export class UserCardComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.user = result;
-      this.userService.editUser(this.user);
+      if (result) {
+        console.log('The dialog was closed');
+        this.user = result;
+        this.userService.editUser(this.user);
+      }
+
     });
   }
 
