@@ -40,7 +40,15 @@ export class UserCardComponent implements OnInit {
   }
 
   modification() {
-    this.dialog.open(EditUserComponent);
+    const dialogRef = this.dialog.open(EditUserComponent, {
+      data: this.user
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.user = result;
+      this.userService.editUser(this.user);
+    });
   }
 
 }

@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './layout/header/header.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { ReactiveFormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { LoginComponent } from './pages/login/login.component';
 import { UserCardComponent } from './layout/user-card/user-card.component';
 import { TrombinoscopeComponent } from './pages/trombinoscope/trombinoscope.component';
@@ -72,12 +72,19 @@ import {MatDialogModule, MatDialogRef} from '@angular/material';
     AppRoutingModule,
     QuillModule.forRoot({
       placeholder: 'Insérer du texte ici...'
-    })
+    }),
+    FormsModule
   ],
-  providers: [AngularFireAuthGuard, AuthGuardService, UserService, AuthService,{
-    provide: MatDialogRef,
-    useValue: {}
-  }],
+  providers: [
+    AngularFireAuthGuard,
+    AuthGuardService,
+    UserService,
+    AuthService,
+    {
+      provide: MatDialogRef,
+      useValue: {}
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

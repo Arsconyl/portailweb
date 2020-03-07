@@ -1,1 +1,29 @@
-<p>edit-user works!</p>
+<h2 mat-dialog-title>Édition de l'utilisateur</h2>
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Prénom</mat-label>
+    <input matInput [(ngModel)]="data.firstName">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Nom de famille</mat-label>
+    <input matInput [(ngModel)]="data.lastName">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-label>Numéro de téléphone</mat-label>
+    <input matInput [(ngModel)]="data.phone">
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>Select</mat-label>
+    <mat-select [(ngModel)]="data.role">
+      <mat-option value="admin">Admin</mat-option>
+      <mat-option value="employe">Employé</mat-option>
+      <mat-option value="client">Client</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Valider</button>
+</div>
