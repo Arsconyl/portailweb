@@ -3,6 +3,8 @@ import User from '../../model/user.model';
 import { UserService } from 'src/app/services/user/user.service';
 import { forkJoin, Observable } from 'rxjs';
 import {map} from 'rxjs/operators';
+import {MatDialog} from '@angular/material';
+import {EditUserComponent} from '../../edit-user/edit-user.component';
 
 @Component({
   selector: 'app-user-card',
@@ -15,17 +17,10 @@ export class UserCardComponent implements OnInit {
   @Input() currentUser: User;
   isAdmin: boolean;
   isEmploye: boolean;
-  onModif: boolean = false;
+  onModif = false;
   // currentUser: User;
 
-  constructor(private userService: UserService) {
-    // this.user = {
-    //   firstName: 'Arnaud',
-    //   lastName: 'Couderc',
-    //   role: 'rôle',
-    //   phone: '0123456789',
-    //   email: 'exemple@email.com'
-    // };
+  constructor(private userService: UserService, public dialog: MatDialog) {
 
   }
 
@@ -45,11 +40,7 @@ export class UserCardComponent implements OnInit {
   }
 
   modification() {
-    if (this.onModif) {
-      this.onModif = false;
-    } else {
-      this.onModif = true;
-    }
+    this.dialog.open(EditUserComponent);
   }
 
 }

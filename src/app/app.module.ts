@@ -34,6 +34,8 @@ import { DropzoneDirective } from './file/directive/dropzone.directive';
 import { UploaderComponent } from './file/uploader/uploader.component';
 import { UploadTaskComponent } from './file/upload-task/upload-task.component';
 import { FileCardComponent } from './file/file-card/file-card.component';
+import {EditUserComponent} from './edit-user/edit-user.component';
+import {MatDialogModule, MatDialogRef} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -48,8 +50,10 @@ import { FileCardComponent } from './file/file-card/file-card.component';
     DropzoneDirective,
     UploaderComponent,
     UploadTaskComponent,
-    FileCardComponent
+    FileCardComponent,
+    EditUserComponent
   ],
+  entryComponents: [EditUserComponent],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
@@ -59,6 +63,7 @@ import { FileCardComponent } from './file/file-card/file-card.component';
     AngularFireRemoteConfigModule,
     AngularFireStorageModule,
     MaterialModule,
+    MatDialogModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -69,7 +74,10 @@ import { FileCardComponent } from './file/file-card/file-card.component';
       placeholder: 'Insérer du texte ici...'
     })
   ],
-  providers: [AngularFireAuthGuard, AuthGuardService, UserService, AuthService],
+  providers: [AngularFireAuthGuard, AuthGuardService, UserService, AuthService,{
+    provide: MatDialogRef,
+    useValue: {}
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
