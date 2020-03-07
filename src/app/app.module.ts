@@ -36,6 +36,12 @@ import { UploadTaskComponent } from './file/upload-task/upload-task.component';
 import { FileCardComponent } from './file/file-card/file-card.component';
 import {EditUserComponent} from './edit-user/edit-user.component';
 import {MatDialogModule, MatDialogRef} from '@angular/material';
+import { DashboardMatComponent } from './dashboard-mat/dashboard-mat.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -51,7 +57,8 @@ import {MatDialogModule, MatDialogRef} from '@angular/material';
     UploaderComponent,
     UploadTaskComponent,
     FileCardComponent,
-    EditUserComponent
+    EditUserComponent,
+    DashboardMatComponent
   ],
   entryComponents: [EditUserComponent],
   imports: [
@@ -73,7 +80,12 @@ import {MatDialogModule, MatDialogRef} from '@angular/material';
     QuillModule.forRoot({
       placeholder: 'Insérer du texte ici...'
     }),
-    FormsModule
+    FormsModule,
+    MatGridListModule,
+    MatCardModule,
+    MatMenuModule,
+    MatIconModule,
+    MatButtonModule
   ],
   providers: [
     AngularFireAuthGuard,

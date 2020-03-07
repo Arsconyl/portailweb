@@ -1,8 +1,8 @@
-import { Injectable } from "@angular/core";
-import { AngularFirestore } from "@angular/fire/firestore";
-import { Observable, BehaviorSubject, of } from "rxjs";
-import User from "../../model/user.model";
-import { AuthService } from "../auth/auth.service";
+import { Injectable } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable, BehaviorSubject, of } from 'rxjs';
+import User from '../../model/user.model';
+import { AuthService } from '../auth/auth.service';
 import {
   switchMap,
   map,
@@ -11,12 +11,12 @@ import {
   first,
   flatMap,
   reduce
-} from "rxjs/operators";
-import { UserCardComponent } from "src/app/layout/user-card/user-card.component";
-import { AngularFireAuth } from "@angular/fire/auth";
+} from 'rxjs/operators';
+import { UserCardComponent } from 'src/app/layout/user-card/user-card.component';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class UserService {
   constructor(
@@ -26,7 +26,7 @@ export class UserService {
   ) {}
 
   public getAllUsers(): Observable<User[]> {
-    return this.afs.collection<User>("users").valueChanges();
+    return this.afs.collection<User>('users').valueChanges();
   }
 
   public getCurrentUser(): Observable<User> {
@@ -38,15 +38,15 @@ export class UserService {
   }
 
   public isClient(): Observable<boolean> {
-    return this.getCurrentUser().pipe(map(user => user.role === "client"));
+    return this.getCurrentUser().pipe(map(user => user.role === 'client'));
   }
 
   public isEmploye(): Observable<boolean> {
-    return this.getCurrentUser().pipe(map(user => user.role === "employe"));
+    return this.getCurrentUser().pipe(map(user => user.role === 'employe'));
   }
 
   public isAdmin(): Observable<boolean> {
-    return this.getCurrentUser().pipe(map(user => user.role === "admin"));
+    return this.getCurrentUser().pipe(map(user => user.role === 'admin'));
   }
 
   public getRole(): string {
@@ -59,13 +59,13 @@ export class UserService {
 
   public editUser(user: User) {
     this.afs.firestore
-      .collection("users")
-      .where("email", "==", user.email)
+      .collection('users')
+      .where('email', '==', user.email)
       .get()
       .then(snapshot => {
         snapshot.forEach(doc => {
           this.afs.firestore
-            .collection("users")
+            .collection('users')
             .doc(doc.id)
             .set(user);
         });

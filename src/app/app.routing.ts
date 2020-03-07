@@ -6,6 +6,7 @@ import { TrombinoscopeComponent } from './pages/trombinoscope/trombinoscope.comp
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { HtmleditorComponent } from './htmleditor/htmleditor.component';
 import { UploaderComponent } from './file/uploader/uploader.component';
+import {DashboardMatComponent} from './dashboard-mat/dashboard-mat.component';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 
@@ -30,7 +31,8 @@ const routes: Routes = [
     path: 'dashboard',
     canActivate: [AngularFireAuthGuard],
     data: { authGuardPipe: redirectUnauthorizedToLogin },
-    component: DashboardComponent
+     component: DashboardComponent
+    // component: DashboardMatComponent
   },
   {
     path: 'news',

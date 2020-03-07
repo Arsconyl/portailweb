@@ -18,7 +18,6 @@ export class UserCardComponent implements OnInit {
   isAdmin: boolean;
   isEmploye: boolean;
   onModif = false;
-  // currentUser: User;
 
   constructor(private userService: UserService, public dialog: MatDialog) {
 
