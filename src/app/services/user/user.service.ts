@@ -32,7 +32,7 @@ export class UserService {
   public getCurrentUser(): Observable<User> {
     // return  this.afs.doc<User>(`users/${this.authService.getCurrentUserId()}`).valueChanges().pipe(take(1));
     return this.afs
-      .doc<User>(`users/${this.afAuth.auth.currentUser.uid}`)
+      .doc<User>(`users/${this.authService.getCurrentUserId()}`)
       .valueChanges()
       .pipe(take(1));
   }

@@ -5,16 +5,10 @@
   margin: 10px;
 }
 
-@media only screen and (max-width: 640px) {
-  .user-card {
-    width:100%;
-}
-}
-
 @media only screen and (max-width: 354px) {
   .user-card {
     width: 250px;
-}
+  }
 }
 
 .user-card > * {
@@ -34,4 +28,12 @@
   font-size: medium;
   width: 100%;
   flex: 1;
+}
+
+a {
+  color: #3f51b5;
+}
+
+a:hover {
+  text-decoration: none;
 }
