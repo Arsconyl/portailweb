@@ -19,4 +19,6 @@ jobs:
     - name: Firebase Deploy
       run: |
         sudo npm install -g firebase-tools
+        sudo npm install -g firebase-functions
+        sudo npm install -g firebase-admin
         firebase deploy --token ${{ secrets.FIREBASE_TOKEN }}
