@@ -5,11 +5,13 @@ import User from "../model/user.model";
 import Article from "../model/article.model";
 import { HTMLArticleService } from "../services/htmlArticle/htmlarticle.service";
 import { Observable } from "rxjs";
+import {DatePipe} from '@angular/common';
 
 @Component({
   selector: "app-htmleditor",
   templateUrl: "./htmleditor.component.html",
-  styleUrls: ["./htmleditor.component.scss"]
+  styleUrls: ["./htmleditor.component.scss"],
+  providers: [DatePipe]
 })
 export class HtmleditorComponent implements OnInit {
   editorForm: FormGroup;
@@ -22,7 +24,8 @@ export class HtmleditorComponent implements OnInit {
 
   constructor(
     public userService: UserService,
-    private articleService: HTMLArticleService
+    private articleService: HTMLArticleService,
+    private datePipe: DatePipe
   ) {}
 
   ngOnInit() {
@@ -37,10 +40,12 @@ export class HtmleditorComponent implements OnInit {
   }
 
   onSubmit() {
+    const myDate = new Date();
     console.log(this.editorForm.get("title").value);
     const newArticle: Article = {
       title: this.editorForm.get("title").value,
-      content: this.editorForm.get("editor").value
+      content: this.editorForm.get("editor").value,
+      date: this.datePipe.transform(myDate, 'dd-MM-yyyy hh:mm')
     };
 
     this.articleService.createArticle(newArticle);
