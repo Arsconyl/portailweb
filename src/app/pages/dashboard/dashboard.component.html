@@ -1,3 +1,18 @@
-  <app-user-card [currentUser]="currentUser" [user]="currentUser" ></app-user-card>
-  <app-htmlarticles></app-htmlarticles>
-  <app-file-card [file]="file"></app-file-card>
+<mat-card>
+  <mat-card-title>Bienvenue</mat-card-title>
+  <mat-card-content>
+    <app-user-card [currentUser]="currentUser" [user]="currentUser" ></app-user-card>
+  </mat-card-content>
+</mat-card>
+<mat-card>
+  <mat-card-title>Articles</mat-card-title>
+  <mat-card-content>
+    <app-htmlarticles></app-htmlarticles>
+  </mat-card-content>
+</mat-card>
+<mat-card>
+  <mat-card-title>Document</mat-card-title>
+  <mat-card-content>
+    <app-file-card [file]="file"></app-file-card>
+  </mat-card-content>
+</mat-card>
