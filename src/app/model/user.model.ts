@@ -4,4 +4,5 @@ export default interface User {
   role: string;
   phone: string;
   email: string;
+  team: string;
 }

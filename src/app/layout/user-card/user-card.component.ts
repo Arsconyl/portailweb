@@ -45,7 +45,9 @@ export class UserCardComponent implements OnInit {
         phone: this.user.phone,
         firstName: this.user.firstName,
         lastName: this.user.lastName,
-        role: this.user.role}
+        role: this.user.role,
+        team: this.user.team
+      }
     });
 
     dialogRef.afterClosed().subscribe(result => {
