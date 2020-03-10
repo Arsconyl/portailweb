@@ -43,6 +43,9 @@
       <div class="info">
         <mat-icon>email</mat-icon>&nbsp;{{user.email}}
       </div>
+      <div class="info">
+        <mat-icon>people</mat-icon>&nbsp;{{user.team}}
+      </div>
     </mat-card-content>
     <mat-card-actions *ngIf="(isAdmin || (isEmploye && isCurrentUser()))">
       <button mat-button (click)="modification()" color="primary">Modifier</button>
