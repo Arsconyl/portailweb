@@ -24,7 +24,7 @@ Arnaud Couderc et Alexandre Ludwig
 
 # Présentation du portail
 
-Ce portail web permet aux collaborateurs (administrateurs, emplyés, clients) de :
+Ce portail web permet aux collaborateurs (administrateurs, employés, clients) de :
 - se connaître par les cartes
 - communiquer par email
 - de consulter des actualités
@@ -34,33 +34,44 @@ Ce portail web permet aux collaborateurs (administrateurs, emplyés, clients) de
 
 # Écran de connection
 
-L'écran de connection permet de se connecter avec son email et son mot de passe. Il détecte également si l'entrée nést pas bonne (adresse incorrecte, mot de passe pas assez long...)
+L'écran de connection permet de se connecter avec son email et son mot de passe.
+
+![bg right width:600px](./Login.png)
 
 ---
 
-![left width:600px](./Login.png)
+Les mauvaises entrées sont vérifiées (adresse incorrecte, mot de passe pas assez long...)
 ![bg right width:600px](./LoginVerif.png)
 
 ---
 
 
-# Process : Jenkins
-À chaque modification sur *master* ou *develop*, Jenkins lance automatiquement un build de la branche modifiée.
+# Trombinoscope
+
+Le trombinoscope permet de voir tous les collaborateurs, avec leur néuméro de téléphone et leur adresse mail et leur équipe.
+
+![bg left width:600px](./Trombi.png)
 
 ---
 
-# Surveillance : Spring Actuator
+Un employé peut modifier sa fiche et un administrateur peut modifier les fiches de tout le monde.
 
-Par un appel à *${API_URL}/actuator*, on obtient cette page :
-
-![bg left width:600px](./actuator.png)
+![bg left width:600px](./TrombiModif.png)
 
 ---
 
-# Surveillance : Spring Boot Admin
+# Actualités
 
-![bg right width:600px](./sba.png)
+Les administrateurs peuvent écrire des actualités qui seront sauvegardées en HTML. Tout le monde peut voir ces actualités.
 
-- Ajouter des métriques de *actuator/metrics*
 
-- Définir la priorité des loggers (DEBUG < FATAL)
+![bg right width:600px](./Actu.png)
+
+---
+
+# Documents
+
+Tout le monde peut enregistrer des documents, et même plusieurs à la fois avec un glissé-déposé.
+
+
+![bg left width:600px](./Fichier.png)
