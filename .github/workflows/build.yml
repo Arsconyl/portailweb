@@ -25,3 +25,7 @@ jobs:
       # run: npm run lint
     - name: Build
       run: npm run build # -- --prod
+    - name: Firebase Deploy
+      run: |
+        sudo npm install -g firebase-tools
+        firebase deploy --token ${{ secrets.FIREBASE_TOKEN }}
