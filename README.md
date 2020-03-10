@@ -14,32 +14,38 @@ Le portail devra être utilisable sur un ordinateur et sur un téléphone portab
 
 ## Fonctionnalités
 
-1. Connexion
+<ol>
+<li>Connexion
 
-La première page visible sur le portail doit être la page de connexion. La connexion se fait avec une adresse mail et un mot de passe. Il ne doit pas être possible pour un utilisateur quelconque de créer un compte, les comptes seront créés via la console firebase pour limiter les utilisateurs.
+La première page visible sur le portail doit être la page de connexion. La connexion se fait avec une adresse mail et un mot de passe. Il ne doit pas être possible pour un utilisateur quelconque de créer un compte, les comptes seront créés via la console firebase pour limiter les utilisateurs.</li>
 
-2. Dashboard
+<li>Dashboard
 
-Une fois connecté, la page principale doit contenir un résumé des différentes autres fonctionnalités. Toutes les fonctionnalités doivent être accessibles via un menu.
+Une fois connecté, la page principale doit contenir un résumé des différentes autres fonctionnalités. Toutes les fonctionnalités doivent être accessibles via un menu.</li>
 
-3. Confidentialité
+<li>Confidentialité
 
-L’application doit gérer trois types d’utilisateurs : les administrateurs, les employés et les clients. 
+L’application doit gérer trois types d’utilisateurs : les administrateurs, les employés et les clients. </li>
 
-4. Actualités
+<li>Actualités
 
-Les administrateurs doivent pouvoir ajouter des actualités en HTML. Les employés et les clients doivent pouvoir consulter ces actualités.
+Les administrateurs doivent pouvoir ajouter des actualités en HTML. Les employés et les clients doivent pouvoir consulter ces actualités.</li>
 
-5. GED
+<li>GED
 
-Les administrateurs et les employés doivent pouvoir ajouter des documents. Tout le monde peut consulter ces documents.
+Les administrateurs et les employés doivent pouvoir ajouter des documents. Tout le monde peut consulter ces documents.</li>
 
-6. Trombinoscope
+<li>Trombinoscope
 
-L’ensemble des utilisateurs doit accéder au détail des utilisateurs. La fiche d’un utilisateur contient son adresse mail, son rôle, son équipe, son numéro de téléphone et éventuellement une photo. Les clients ne peuvent pas modifier leur fiche. Les employés peuvent modifier leur propre fiche, et les administrateurs peuvent modifier les fiches de tout le monde.
+L’ensemble des utilisateurs doit accéder au détail des utilisateurs. La fiche d’un utilisateur contient son adresse mail, son rôle, son équipe, son numéro de téléphone et éventuellement une photo. Les clients ne peuvent pas modifier leur fiche. Les employés peuvent modifier leur propre fiche, et les administrateurs peuvent modifier les fiches de tout le monde.</li>
+</ol>
 
+## Installation du projet
 
-## Development server
+1. Clonez le projet `git clone https://github.com/SmileEdge/portailweb` 
+2. Déplacez vous dans le dossier `cd portailweb`                       
+3. Executez `npm start`                                                
+4. Ouvrez cette page depuis votre navigateur `http://localhost:4200`   
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
