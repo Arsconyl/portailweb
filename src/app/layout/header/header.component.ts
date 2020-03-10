@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
@@ -14,18 +14,16 @@ import User from 'src/app/model/user.model';
 })
 export class HeaderComponent implements OnInit {
 
-  currentUser: User = {} as User;
-  another: User = {} as User;
-
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),
       shareReplay()
     );
 
+  isLoggedIn: boolean;
+
   constructor(private breakpointObserver: BreakpointObserver,
               private authService: AuthService,
-              private userService: UserService,
               private router: Router) {}
 
   signOut() {
@@ -34,10 +32,9 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.userService.getCurrentUser().subscribe(user => {
-      this.currentUser = user;
-
+    this.authService.isLoggedIn().subscribe(user => {
+      console.log(user);
+      this.isLoggedIn = user && user.uid ? true : false;
     });
   }
-
 }
