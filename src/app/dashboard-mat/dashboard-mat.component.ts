@@ -29,7 +29,7 @@ export class DashboardMatComponent implements OnInit {
 
   public file: any = {};
   public cards: any;
-  currentUser: User = {} as any;
+  currentUser: User = {} as User;
 
   constructor(private breakpointObserver: BreakpointObserver, private userService: UserService, private fileService: FileService) {
   }

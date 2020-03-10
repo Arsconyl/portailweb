@@ -9,7 +9,7 @@ import User from '../../model/user.model';
 })
 export class TrombinoscopeComponent implements OnInit {
   users: User[];
-  currentUser: User = {} as any;
+  currentUser: User = {} as User;
 
   constructor(private userService: UserService) {
     this.users = [];
