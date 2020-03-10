@@ -42,6 +42,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { HtmlsinglearticleComponent } from './htmlsinglearticle/htmlsinglearticle.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { MatButtonModule } from '@angular/material/button';
     UploadTaskComponent,
     FileCardComponent,
     EditUserComponent,
-    DashboardMatComponent
+    DashboardMatComponent,
+    HtmlsinglearticleComponent
   ],
   entryComponents: [EditUserComponent],
   imports: [
