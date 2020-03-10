@@ -36,7 +36,6 @@ import { UploadTaskComponent } from './file/upload-task/upload-task.component';
 import { FileCardComponent } from './file/file-card/file-card.component';
 import {EditUserComponent} from './edit-user/edit-user.component';
 import {MatDialogModule, MatDialogRef} from '@angular/material';
-import { DashboardMatComponent } from './dashboard-mat/dashboard-mat.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
@@ -59,7 +58,6 @@ import { HtmlsinglearticleComponent } from './htmlsinglearticle/htmlsinglearticl
     UploadTaskComponent,
     FileCardComponent,
     EditUserComponent,
-    DashboardMatComponent,
     HtmlsinglearticleComponent
   ],
   entryComponents: [EditUserComponent],
