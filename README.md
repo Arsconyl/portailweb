@@ -2,6 +2,8 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.22.
 
+Accès sur le web : https://portailweb-52f4c.web.app/
+
 ## Vue d'ensemble / Caractéristiques techniques
 
 Ce cahier des charges décrit le portail web qui devra être utilisable par les différents membres de l’entreprise.
