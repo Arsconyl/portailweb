@@ -44,8 +44,26 @@ L’ensemble des utilisateurs doit accéder au détail des utilisateurs. La fich
 
 1. Clonez le projet `git clone https://github.com/SmileEdge/portailweb` 
 2. Déplacez vous dans le dossier `cd portailweb`                       
-3. Executez `npm start`                                                
-4. Ouvrez cette page depuis votre navigateur `http://localhost:4200`   
+3. Modifiez le fichier `src/environments/environment.ts` comme ceci :
+
+```javascipt
+export const APIKEY = 'your_firebase_api_key';
+
+export const PROJECTID = 'your_firebase_project_id';
+
+export const environment = {
+production: false,
+  firebase: {
+    apiKey: APIKEY,
+    authDomain: `${PROJECTID}.firebaseapp.com`,
+    databaseURL: `https://${PROJECTID}.firebaseio.com`,
+    projectId: PROJECTID,
+    storageBucket: `${PROJECTID}.appspot.com`,
+  }
+};
+```
+4. Executez `npm start`                                                
+5. Ouvrez cette page depuis votre navigateur `http://localhost:4200`   
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
